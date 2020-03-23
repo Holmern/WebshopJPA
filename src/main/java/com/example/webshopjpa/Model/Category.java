@@ -1,10 +1,13 @@
 package com.example.webshopjpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.stereotype.Service;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Category {
+public class Category implements Serializable {
+
     @Id
     private int id;
     private String name;

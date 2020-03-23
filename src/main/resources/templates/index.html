@@ -26,9 +26,11 @@
         <td th:text="${product.name}">NAVN</td>
         <td th:text="${product.price}">PRIS</td>
         <td th:text="${product.description}">BESKRIVELSE</td>
+        <td th:text="${product.company}">BESKRIVELSE</td>
         <td><a th:href="@{'/Delete/' + ${product.id}}">Delete</a></td>
         <td><a th:href="@{'/Update/' + ${product.id}}">Update</a></td>
         <td><a th:href="@{'/Description/' + ${product.id}}">Update</a></td>
+
 
 
 

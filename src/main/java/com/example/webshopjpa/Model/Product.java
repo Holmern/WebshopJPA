@@ -2,29 +2,32 @@ package com.example.webshopjpa.Model;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.io.Serializable;
 
-    @Entity
-    public class Product {
+@Entity
+    @Table(name = "product")
+    public class Product implements Serializable {
 
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long productID;
 
         private String productName;
         private double price;
         private String description;
-        Company company = new Company();
-        Category category = new Category();
+
+        @ManyToOne(fetch = FetchType.LAZY, optional = false)
+        @JoinColumn(name = "company_id", nullable = false)
+        private Company company;
 
         public Product(){}
-        public Product(long id, String name, double price, String description /*Company company, Category category*/) {
+        public Product(long id, String name, double price, String description, Company company) {
             this.productID = id;
             this.productName = name;
             this.price = price;
             this.description = description;
-        /*this.company = company;
-        this.category = category;*/
-
+            this.company = company;
         }
 
         @javax.persistence.Id
@@ -59,6 +62,25 @@ import javax.persistence.Entity;
         public void setDescription(String description) {
             this.description = description;
         }
+
+    public Company getCompany() {
+        return company;
     }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productID=" + productID +
+                ", productName='" + productName + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", company=" + company +
+                '}';
+    }
+}
 
 
