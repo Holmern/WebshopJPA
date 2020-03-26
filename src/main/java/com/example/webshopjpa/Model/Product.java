@@ -19,7 +19,7 @@ import java.io.Serializable;
 
         @ManyToOne(fetch = FetchType.LAZY, optional = false)
         @JoinColumn(name = "company_id", nullable = false)
-        private Company company;
+        protected Company company;
 
         public Product(){}
         public Product(long id, String name, double price, String description, Company company) {

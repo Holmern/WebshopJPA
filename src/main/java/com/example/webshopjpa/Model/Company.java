@@ -14,8 +14,8 @@ public class Company implements Serializable {
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Product> products;
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    protected Set<Product> products;
 
     public Company() {}
 
