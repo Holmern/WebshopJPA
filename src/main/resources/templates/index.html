@@ -29,7 +29,7 @@
         <td th:text="${product.company}">BESKRIVELSE</td>
         <td><a th:href="@{'/Delete/' + ${product.id}}">Delete</a></td>
         <td><a th:href="@{'/Update/' + ${product.id}}">Update</a></td>
-        <td><a th:href="@{'/Description/' + ${product.id}}">Update</a></td>
+        <td><a th:href="@{'/Description/' + ${product.id}}">Description</a></td>
 
 
 
@@ -38,7 +38,7 @@
     </tr>
 
 </table>
-
+<a href="/CompanyCreate">Tilføj virksomhed</a>
 <a href="/Create">Tilføj nyt produkt til listen</a>
 
 
