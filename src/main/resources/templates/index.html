@@ -18,18 +18,19 @@
         <th>NAVN</th>
         <th>PRIS</th>
         <th>BESKRIVELSE</th>
+        <th>COMPANY</th>
     </tr>
 
     <tr th:each="product:${productList}">
 
-        <td th:text="${product.id}">ID</td>
+        <td th:text="${product.productid}">ID</td>
         <td th:text="${product.name}">NAVN</td>
         <td th:text="${product.price}">PRIS</td>
         <td th:text="${product.description}">BESKRIVELSE</td>
-        <td th:text="${product.company}">BESKRIVELSE</td>
-        <td><a th:href="@{'/Delete/' + ${product.id}}">Delete</a></td>
-        <td><a th:href="@{'/Update/' + ${product.id}}">Update</a></td>
-        <td><a th:href="@{'/Description/' + ${product.id}}">Description</a></td>
+        <td th:text="${product.company.name}">COM</td>
+        <td><a th:href="@{'/Delete/' + ${product.productid}}">Delete</a></td>
+        <td><a th:href="@{'/Update/' + ${product.productid}}">Update</a></td>
+        <td><a th:href="@{'/Description/' + ${product.productid}}">Description</a></td>
 
 
 

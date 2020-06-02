@@ -6,9 +6,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "category")
 public class Category implements Serializable {
 
+    private static final long serialVersionUID = 4L;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
@@ -35,3 +39,4 @@ public class Category implements Serializable {
         this.name = name;
     }
 }
+

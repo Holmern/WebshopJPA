@@ -1,47 +1,50 @@
 package com.example.webshopjpa.Model;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-    @Table(name = "product")
-    public class Product implements Serializable {
+@Table(name = "product")
+public class Product implements Serializable {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long productID;
 
-        private String productName;
-        private double price;
-        private String description;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="productid")
+    private int productid;
 
-        @ManyToOne(fetch = FetchType.LAZY, optional = false)
-        @JoinColumn(name = "company_id", nullable = false)
-        protected Company company;
+     private String productName;
+     private double price;
+     private String description;
 
-        public Product(){}
-        public Product(long id, String name, double price, String description, Company company) {
-            this.productID = id;
-            this.productName = name;
-            this.price = price;
-            this.description = description;
-            this.company = company;
-        }
 
-        @javax.persistence.Id
-        public long getId() {
-            return productID;
-        }
 
-        public void setId(long id) {
-            this.productID = id;
-        }
 
-        public String getName() {
-            return productName;
-        }
+     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+     @JoinColumn(name="company", referencedColumnName = "id")
+     private Company company;
+
+     public Product(){}
+     public Product(int id, String name, double price, String description, Company company) {
+         this.productid = id;
+         this.productName = name;
+         this.price = price;
+         this.description = description;
+         this.company = company;
+     }
+
+
+     public int getProductid() {
+         return productid;
+     }
+
+     public void setProductid(int id) {
+         this.productid = id;
+     }
+
+     public String getName() {
+         return productName;
+     }
 
         public void setName(String name) {
             this.productName = name;
@@ -63,7 +66,7 @@ import java.io.Serializable;
             this.description = description;
         }
 
-    public Company getCompany() {
+   public Company getCompany() {
         return company;
     }
 
@@ -74,11 +77,10 @@ import java.io.Serializable;
     @Override
     public String toString() {
         return "Product{" +
-                "productID=" + productID +
+                "productID=" + productid +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
-                ", company=" + company +
                 '}';
     }
 }

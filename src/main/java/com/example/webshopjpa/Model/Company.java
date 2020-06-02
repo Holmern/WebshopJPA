@@ -3,7 +3,7 @@ package com.example.webshopjpa.Model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "company")
@@ -11,34 +11,29 @@ public class Company implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name="id")
+    private Integer companyid;
     private String name;
 
     @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    protected Set<Product> products;
+    private List<Product> products;
 
     public Company() {}
 
-    public Company(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Integer getCompanyid() {
+        return companyid;
+    }
+    public void setCompanyid(Integer id) {
+        this.companyid = id;
     }
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Set<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(Set<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
-
 
     public String getName() {
         return name;
@@ -51,9 +46,7 @@ public class Company implements Serializable {
     @Override
     public String toString() {
         return "Company{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", products=" + products +
-                '}';
+                "id=" + companyid +
+                ", name='" + name + '\'' + '}';
     }
 }

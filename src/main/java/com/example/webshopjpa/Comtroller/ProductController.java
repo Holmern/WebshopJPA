@@ -5,10 +5,7 @@ import com.example.webshopjpa.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -36,14 +33,14 @@ public class ProductController {
         return "redirect:/";
     }
 
-    @GetMapping("/Delete/{id}")
-    public String delete(@PathVariable("id") long id){
+    @GetMapping("/Delete/{productid}")
+    public String delete(@PathVariable("productid") int id){
         productService.delete(id);
         return "redirect:/";
     }
 
-    @GetMapping("/Update/{id}")
-    public String update(@PathVariable ("id") long id, Model model){
+    @GetMapping("/Update/{productid}")
+    public String findProduct(@PathVariable ("productid") int id, Model model){
         model.addAttribute("productList", productService.findProduct(id));
         return "Update";
     }

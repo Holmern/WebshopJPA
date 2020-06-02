@@ -25,13 +25,13 @@ public void create(Product product){
 }
 
 //Delete
-    public void delete(long id){
+    public void delete(int id){
         productRepoJPA.deleteById(id);
     }
 
 //update
     //find
-    public Product findProduct(long id){
+    public Product findProduct(int id){
         return productRepoJPA.getOne(id);
     }
 

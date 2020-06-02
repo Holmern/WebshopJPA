@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CompanyRepoJPA extends JpaRepository<Company, Integer>{
 
-   // Company findBy(int id);
 
 }

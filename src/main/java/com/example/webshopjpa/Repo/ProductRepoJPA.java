@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductRepoJPA extends JpaRepository<Product, Long> {
+public interface ProductRepoJPA extends JpaRepository<Product, Integer> {
 
    // List<Product> findByCompany(Company company, Sort sort);
 }
