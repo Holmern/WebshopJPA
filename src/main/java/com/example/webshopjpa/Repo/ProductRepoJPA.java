@@ -12,5 +12,4 @@ import java.util.List;
 @Repository
 public interface ProductRepoJPA extends JpaRepository<Product, Integer> {
 
-   // List<Product> findByCompany(Company company, Sort sort);
 }
